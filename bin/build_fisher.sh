@@ -14,7 +14,6 @@ for C in $(cd mapping; ls fisher*); do
     echo "## FILE $F"
     cat $1/data/transcripts/$F.tdf | 
     grep -v ";;MM" | grep -v "file;unicode" | 
-    cut -f 8 | 
-    $BINDIR/strip_markup.pl
+    cut -f 8 
   done | $BINDIR/map_transcription.py mapping/$C > $TARGETDIR/$C.es
 done 
